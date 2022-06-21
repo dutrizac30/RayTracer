@@ -5,9 +5,9 @@ struct MyStruct
   int a;
 };
 
-void modifyTheData(struct MyStruct s)
+void modifyTheData(struct MyStruct *s)
 {
-  s.a = 222;
+  s->a = 222;
 }
 
 void printStruct(struct MyStruct *s)
@@ -19,6 +19,8 @@ int main()
 {
   struct MyStruct s;
   printf("Sandbox!\n");
-  modifyTheData(s);
+  modifyTheData(&s);
   printStruct(&s);
+
+  return 0;
 }
