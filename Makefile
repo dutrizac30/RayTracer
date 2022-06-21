@@ -11,8 +11,12 @@ test:
 	gcc -Wall -Wextra -ansi -pedantic vec3.c tests/vec3_test.c -o tests/vec3_test
 	./tests/vec3_test
 
+sandbox: sandbox.c
+	gcc -Wall -Wextra -ansi -pedantic sandbox.c -o sandbox
+	./sandbox
+
 clean:
-	rm main out.ppm tests/vec3_test
+	rm main out.ppm tests/vec3_test sandbox
 
 
 
