@@ -1,7 +1,17 @@
 #ifndef __vec3_h__
 #define __vec3_h__
 
+struct vec3
+{
+    double x;
+    double y;
+    double z;
+};
+
+
 void vec3_placeholder();
+
+void vec3_set(double x, double y, double z, struct vec3 *result);
 
 /**
 // Here are the functions we need to implement
