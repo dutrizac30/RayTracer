@@ -8,9 +8,6 @@ struct vec3
     double z;
 };
 
-
-void vec3_placeholder();
-
 void vec3_set(double x, double y, double z, struct vec3 *result);
 
 /**
