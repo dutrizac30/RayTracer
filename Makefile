@@ -1,7 +1,7 @@
 out.ppm: main
 	./main > out.ppm
 
-main: test_all main.c
+main: main.c
 	gcc -Wall -Wextra -ansi -pedantic main.c -o main
 
 viewmac: out.ppm
