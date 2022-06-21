@@ -55,5 +55,5 @@ dkms.conf
 *.ppm
 main
 sandbox
-tests/vec3_test
+test/vec3_test
 .vscode

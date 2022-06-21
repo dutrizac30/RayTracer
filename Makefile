@@ -1,22 +1,22 @@
 out.ppm: main
 	./main > out.ppm
 
-main: test main.c
+main: test_all main.c
 	gcc -Wall -Wextra -ansi -pedantic main.c -o main
 
 viewmac: out.ppm
 	open out.ppm
 
-test:
-	gcc -Wall -Wextra -ansi -pedantic vec3.c tests/vec3_test.c -o tests/vec3_test
-	./tests/vec3_test
+test_all:
+	gcc -Wall -Wextra -ansi -pedantic vec3.c test/vec3_test.c -o test/vec3_test
+	./test/vec3_test
 
 sandbox: sandbox.c
 	gcc -Wall -Wextra -ansi -pedantic sandbox.c -o sandbox
 	./sandbox
 
 clean:
-	rm main out.ppm tests/vec3_test sandbox
+	rm -f main out.ppm test/vec3_test sandbox
 
 
 
