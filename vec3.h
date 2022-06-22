@@ -16,13 +16,14 @@ void vec3_sub(struct vec3 *v, struct vec3 *w, struct vec3 *result);
 
 void vec3_mul(struct vec3 *v, struct vec3 *w, struct vec3 *result);
 
+void vec3_div(struct vec3 *v, struct vec3 *w, struct vec3 *result);
+
 void vec3_mulscalar(struct vec3 *v, double t, struct vec3 *result);
+
+void vec3_divscalar(struct vec3 *v, double t, struct vec3 *result);
 
 /**
 // Here are the functions we need to implement
-// void vec3_mulscalar(v, t, r)
-// void vec3_div(v, w, r)
-// void vec3_divscalar(v, t, r)
 // double vec3_dot(v, w)
 // void vec3_cross(v, w, r)
 // double vec3_len_squared(v)

@@ -52,6 +52,20 @@ void test_vec3_mul()
   assert(result.z == v.z * w.z);
 }
 
+void test_vec3_div()
+{
+  struct vec3 v;
+  struct vec3 w;
+  struct vec3 result;
+  vec3_set(2.2, -4.3, 9.1, &v);
+  vec3_set(2.7, 7.6, 2.1, &w);
+
+  vec3_div(&v, &w, &result);
+  assert(result.x == v.x / w.x);
+  assert(result.y == v.y / w.y);
+  assert(result.z == v.z / w.z);
+}
+
 void test_vec3_mulscalar()
 {
   struct vec3 v;
@@ -65,13 +79,28 @@ void test_vec3_mulscalar()
   assert(result.z == v.z * t);
 }
 
+void test_vec3_divscalar()
+{
+  struct vec3 v;
+  double t = 6.6;
+  struct vec3 result;
+  vec3_set(8.6, 3.1, 1.9, &v);
+
+  vec3_divscalar(&v, t, &result);
+  assert(result.x == v.x / t);
+  assert(result.y == v.y / t);
+  assert(result.z == v.z / t);
+}
+
 int main()
 {
   test_vec3_set();
   test_vec3_add();
   test_vec3_sub();
   test_vec3_mul();
+  test_vec3_div();
   test_vec3_mulscalar();
+  test_vec3_divscalar();
 
   return 0;
 }

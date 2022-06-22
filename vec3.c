@@ -29,9 +29,23 @@ void vec3_mul(struct vec3 *v, struct vec3 *w, struct vec3 *result)
   result->z = v->z * w->z;
 }
 
+void vec3_div(struct vec3 *v, struct vec3 *w, struct vec3 *result)
+{
+  result->x = v->x / w->x;
+  result->y = v->y / w->y;
+  result->z = v->z / w->z;
+}
+
 void vec3_mulscalar(struct vec3 *v, double t, struct vec3 *result)
 {
   result->x = v->x * t;
   result->y = v->y * t;
   result->z = v->z * t;
+}
+
+void vec3_divscalar(struct vec3 *v, double t, struct vec3 *result)
+{
+  result->x = v->x / t;
+  result->y = v->y / t;
+  result->z = v->z / t;
 }
