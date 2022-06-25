@@ -1,4 +1,5 @@
 #include <assert.h>
+#include <math.h>
 #include "../vec3.h"
 
 void test_vec3_set()
@@ -92,6 +93,52 @@ void test_vec3_divscalar()
   assert(result.z == v.z / t);
 }
 
+void test_vec3_dot()
+{
+  vec3 v, w;
+  vec3_set(1.0, 2.0, 3.0, &v);
+  vec3_set(-8.1, 4.3, 0.004, &w);
+  assert(vec3_dot(&v, &w) == v.x * w.x + v.y * w.y + v.z * w.z);
+}
+
+void test_vec3_length_squared()
+{
+  vec3 v;
+  vec3_set(1.0, 2.0, 7.0, &v);
+  assert(vec3_length_squared(&v) == v.x * v.x + v.y * v.y + v.z * v.z);
+}
+
+void test_vec3_length()
+{
+  vec3 v;
+  vec3_set(1.0, 2.0, 7.0, &v);
+  assert(vec3_length(&v) == sqrt(v.x * v.x + v.y * v.y + v.z * v.z));
+}
+
+void test_vec3_unit()
+{
+  vec3 v, w, r;
+  double vlen;
+  vec3_set(1.0, 2.0, 7.0, &v);
+  vlen = vec3_length(&v);
+  vec3_divscalar(&v, vlen, &w);
+  vec3_unit(&v, &r);
+  assert(r.x == w.x);
+  assert(r.y == w.y);
+  assert(r.z == w.z);
+}
+
+void test_vec3_cross()
+{
+  vec3 v, w, result;
+  vec3_set(1.0, 2.0, 3.0, &v);
+  vec3_set(-2.0, 6.0, 11.0, &w);
+  vec3_cross(&v, &w, &result);
+  assert(result.x == v.y * w.z - v.z * w.y);
+  assert(result.y == v.x * w.z - v.z * w.x);
+  assert(result.z == v.x * w.y - v.y * w.x);
+}
+
 int main()
 {
   test_vec3_set();
@@ -101,6 +148,11 @@ int main()
   test_vec3_div();
   test_vec3_mulscalar();
   test_vec3_divscalar();
+  test_vec3_dot();
+  test_vec3_length_squared();
+  test_vec3_length();
+  test_vec3_unit();
+  test_vec3_cross();
 
   return 0;
 }

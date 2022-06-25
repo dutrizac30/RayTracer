@@ -25,14 +25,14 @@ void vec3_mulscalar(vec3 *v, double t, vec3 *result);
 
 void vec3_divscalar(vec3 *v, double t, vec3 *result);
 
-/**
-// Here are the functions we need to implement
-// double vec3_dot(v, w) == v.x * w.x + v.y * w.y + v.z * w.z
-// double vec3_len_squared(v) == vec3_dot(v, v)
-// double vec3_len(v) == sqrt(vec3_len_squared(v))
-// void vec3_unit(v, r) { vec3_divscalar(v, vec3_len(v), r) }
-//
-// void vec3_cross(v, w, r) // a bit trickier
-*/
+double vec3_dot(vec3 *v, vec3 *w);
+
+double vec3_length_squared(vec3 *v);
+
+double vec3_length(vec3 *v);
+
+void vec3_unit(vec3 *v, vec3 *r);
+
+void vec3_cross(vec3 *v, vec3 *w, vec3 *r);
 
 #endif
