@@ -1,5 +1,6 @@
 #ifndef __vec3_h__
 #define __vec3_h__
+#include <stdio.h>
 
 struct tuple3
 {
@@ -9,6 +10,8 @@ struct tuple3
 };
 
 typedef struct tuple3 vec3;
+typedef struct tuple3 point3;
+typedef struct tuple3 colour;
 
 void vec3_set(double x, double y, double z, vec3 *result);
 
@@ -33,5 +36,7 @@ double vec3_len(vec3 *v);
 void vec3_unit(vec3 *v, vec3 *result);
 
 void vec3_cross(vec3 *v, vec3 *w, vec3 *result);
+
+void colour_print(FILE *os, colour *c);
 
 #endif

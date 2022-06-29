@@ -81,3 +81,12 @@ void vec3_cross(vec3 *v, vec3 *w, vec3 *result)
   result->y = v->z * w->x - v->x * w->z;
   result->z = v->x * w->y - v->y * w->x;
 }
+
+void colour_print(FILE *os, colour *c)
+{
+  int ir = (int)(255.999 * c->x);
+  int ig = (int)(255.999 * c->y);
+  int ib = (int)(255.999 * c->z);
+
+  fprintf(os, "%d %d %d\n", ir, ig, ib);
+}

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "vec3.h"
 
 int main()
 {
@@ -20,11 +21,9 @@ int main()
       double g = (double)j / (image_width - 1);
       double b = 0.25;
 
-      int ir = (int)(255.999 * r);
-      int ig = (int)(255.999 * g);
-      int ib = (int)(255.999 * b);
-
-      printf("%d %d %d\n", ir, ig, ib);
+      colour c;
+      vec3_set(r, g, b, &c);
+      colour_print(stdout, &c);
     }
   }
 

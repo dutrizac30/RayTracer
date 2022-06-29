@@ -1,8 +1,8 @@
 out.ppm: main
 	./main > out.ppm
 
-main: test_all main.c
-	gcc -Wall -Wextra -ansi -pedantic main.c -o main
+main: test_all main.c vec3.h vec3.c
+	gcc -Wall -Wextra -ansi -pedantic main.c vec3.c -o main 
 
 viewmac: out.ppm
 	open out.ppm
