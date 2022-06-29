@@ -4,7 +4,7 @@
 
 void test_vec3_set()
 {
-  struct vec3 v;
+  vec3 v;
   vec3_set(2.3, 3.2, -4.5, &v);
   assert(v.x == 2.3);
   assert(v.y == 3.2);
@@ -13,9 +13,9 @@ void test_vec3_set()
 
 void test_vec3_add()
 {
-  struct vec3 v;
-  struct vec3 w;
-  struct vec3 result;
+  vec3 v;
+  vec3 w;
+  vec3 result;
   vec3_set(3.3, 5.9, -1.1, &v);
   vec3_set(5.5, 9.9, -8.8, &w);
 
@@ -27,9 +27,9 @@ void test_vec3_add()
 
 void test_vec3_sub()
 {
-  struct vec3 v;
-  struct vec3 w;
-  struct vec3 result;
+  vec3 v;
+  vec3 w;
+  vec3 result;
   vec3_set(4.7, -9.9, 18.1, &v);
   vec3_set(6.9, 7.7, 3.8, &w);
 
@@ -41,9 +41,9 @@ void test_vec3_sub()
 
 void test_vec3_mul()
 {
-  struct vec3 v;
-  struct vec3 w;
-  struct vec3 result;
+  vec3 v;
+  vec3 w;
+  vec3 result;
   vec3_set(5.6, -6.7, 8.1, &v);
   vec3_set(8.9, 6.7, 5.5, &w);
 
@@ -55,9 +55,9 @@ void test_vec3_mul()
 
 void test_vec3_div()
 {
-  struct vec3 v;
-  struct vec3 w;
-  struct vec3 result;
+  vec3 v;
+  vec3 w;
+  vec3 result;
   vec3_set(2.2, -4.3, 9.1, &v);
   vec3_set(2.7, 7.6, 2.1, &w);
 
@@ -69,9 +69,9 @@ void test_vec3_div()
 
 void test_vec3_mulscalar()
 {
-  struct vec3 v;
+  vec3 v;
   double t = 5.8;
-  struct vec3 result;
+  vec3 result;
   vec3_set(6.6, -4.4, 3.3, &v);
 
   vec3_mulscalar(&v, t, &result);
@@ -82,9 +82,9 @@ void test_vec3_mulscalar()
 
 void test_vec3_divscalar()
 {
-  struct vec3 v;
+  vec3 v;
   double t = 6.6;
-  struct vec3 result;
+  vec3 result;
   vec3_set(8.6, 3.1, 1.9, &v);
 
   vec3_divscalar(&v, t, &result);
@@ -95,8 +95,8 @@ void test_vec3_divscalar()
 
 void test_vec3_dot()
 {
-  struct vec3 v;
-  struct vec3 w;
+  vec3 v;
+  vec3 w;
   double result;
   vec3_set(4.5, 5.6, 3.3, &v);
   vec3_set(9.1, 7.9, 5.3, &w);
@@ -107,7 +107,7 @@ void test_vec3_dot()
 
 void test_vec3_len_squared()
 {
-  struct vec3 v;
+  vec3 v;
   double result;
   vec3_set(1.1, 2.2, 3.3, &v);
 
@@ -117,7 +117,7 @@ void test_vec3_len_squared()
 
 void test_vec3_len()
 {
-  struct vec3 v;
+  vec3 v;
   double result;
   vec3_set(8.3, 5.4, -9.9, &v);
 
@@ -127,10 +127,10 @@ void test_vec3_len()
 
 void test_vec3_unit()
 {
-  struct vec3 v;
-  struct vec3 tmp;
+  vec3 v;
+  vec3 tmp;
   double tmp_len;
-  struct vec3 result;
+  vec3 result;
   vec3_set(4.3, 3.3, 6.8, &v);
   vec3_set(4.3, 3.3, 6.8, &tmp);
   tmp_len = vec3_len(&tmp);
@@ -143,9 +143,9 @@ void test_vec3_unit()
 
 void test_vec3_cross()
 {
-  struct vec3 v;
-  struct vec3 w;
-  struct vec3 result;
+  vec3 v;
+  vec3 w;
+  vec3 result;
   vec3_set(3.8, 1.7, 8.4, &v);
   vec3_set(5.2, -8.5, 7.9, &w);
 
