@@ -4,8 +4,8 @@
 
 struct _ray
 {
-    vec3 direction;
-    point3 origin;
+  vec3 direction;
+  point3 origin;
 };
 
 typedef struct _ray ray;
