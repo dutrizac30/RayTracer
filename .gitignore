@@ -56,4 +56,5 @@ dkms.conf
 main
 sandbox
 test/vec3_test
+test/ray_test
 .vscode
