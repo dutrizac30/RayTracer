@@ -11,6 +11,16 @@ void test_vec3_set()
   assert(v.z == -4.5);
 }
 
+void test_vec3_copy()
+{
+  vec3 v, target;
+  vec3_set(2.3, 3.2, -4.5, &v);
+  vec3_copy(&v, &target);
+  assert(target.x == 2.3);
+  assert(target.y == 3.2);
+  assert(target.z == -4.5);
+}
+
 void test_vec3_add()
 {
   vec3 v;
@@ -158,6 +168,7 @@ void test_vec3_cross()
 int main()
 {
   test_vec3_set();
+  test_vec3_copy();
   test_vec3_add();
   test_vec3_sub();
   test_vec3_mul();

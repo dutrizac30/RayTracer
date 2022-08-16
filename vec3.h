@@ -15,6 +15,8 @@ typedef struct tuple3 colour;
 
 void vec3_set(double x, double y, double z, vec3 *result);
 
+void vec3_copy(vec3 *v, vec3 *result);
+
 void vec3_add(vec3 *v, vec3 *w, vec3 *result);
 
 void vec3_sub(vec3 *v, vec3 *w, vec3 *result);

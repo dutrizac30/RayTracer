@@ -9,6 +9,13 @@ void vec3_set(double x, double y, double z, vec3 *result)
   result->z = z;
 }
 
+void vec3_copy(vec3 *v, vec3 *result)
+{
+  result->x = v->x;
+  result->y = v->y;
+  result->z = v->z;
+}
+
 void vec3_add(vec3 *v, vec3 *w, vec3 *result)
 {
   result->x = v->x + w->x;
