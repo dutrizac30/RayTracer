@@ -2,13 +2,34 @@
 #include "vec3.h"
 #include "ray.h"
 
+int hit_sphere(point3 *center, double radius, ray *r)
+{
+  vec3 oc;
+  double a, b, c, discriminant;
+  vec3_sub(&(r->origin), center, &oc);
+  a = vec3_dot(&(r->direction), &(r->direction));
+  b = 2.0 * vec3_dot(&oc, &(r->direction));
+  c = vec3_dot(&oc, &oc) - radius * radius;
+  discriminant = b * b - 4 * a * c;
+  return (discriminant > 0);
+}
+
 void ray_colour(ray *r, colour *result)
 {
   vec3 unit_direction;
   double t;
-  vec3_unit(&(r->direction), &unit_direction);
-  t = 0.5 * (unit_direction.y + 1.0);
-  vec3_set((1.0 - t) + t * 0.5, (1.0 - t) + t * 0.7, (1.0 - t) + t, result);
+  point3 origin;
+  vec3_set(0, 0, -1, &origin);
+  if (hit_sphere(&origin, 0.5, r))
+  {
+    vec3_set(1, 0, 0, result);
+  }
+  else
+  {
+    vec3_unit(&(r->direction), &unit_direction);
+    t = 0.5 * (unit_direction.y + 1.0);
+    vec3_set((1.0 - t) + t * 0.5, (1.0 - t) + t * 0.7, (1.0 - t) + t, result);
+  }
 }
 
 int main()
