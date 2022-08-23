@@ -1,8 +1,9 @@
 #include <stdio.h>
+#include <math.h>
 #include "vec3.h"
 #include "ray.h"
 
-int hit_sphere(point3 *center, double radius, ray *r)
+double hit_sphere(point3 *center, double radius, ray *r)
 {
   vec3 oc;
   double a, b, c, discriminant;
@@ -11,18 +12,29 @@ int hit_sphere(point3 *center, double radius, ray *r)
   b = 2.0 * vec3_dot(&oc, &(r->direction));
   c = vec3_dot(&oc, &oc) - radius * radius;
   discriminant = b * b - 4 * a * c;
-  return (discriminant > 0);
+  if (discriminant < 0)
+  {
+    return -1.0;
+  }
+  else
+  {
+    return (-b - sqrt(discriminant)) / (2.0 * a);
+  }
 }
 
 void ray_colour(ray *r, colour *result)
 {
-  vec3 unit_direction;
+  vec3 unit_direction, N;
   double t;
   point3 origin;
   vec3_set(0, 0, -1, &origin);
-  if (hit_sphere(&origin, 0.5, r))
+  t = hit_sphere(&origin, 0.5, r);
+  if (t > 0)
   {
-    vec3_set(1, 0, 0, result);
+    ray_at(r, t, &N);
+    vec3_sub(&N, &origin, &N);
+    vec3_unit(&N, &N);
+    vec3_set(0.5 * (N.x + 1), 0.5 * (N.y + 1), 0.5 * (N.z + 1), result);
   }
   else
   {
